@@ -114,7 +114,7 @@
             display: flex;
       }
 .navigation-item{
-    margin-top: 5px;
+            margin-top: 5px;
             flex-grow: 1
 }
 .navigation-item-icon{
@@ -171,7 +171,7 @@
         .card-container{
             flex-wrap: wrap;
             width: 900px;
-            background-color: #151010;
+            background-color: #312c2c;
         }
 .card-content{
 			width: 200px;
@@ -191,6 +191,7 @@
 }
 .product-price{
     margin-left: 150px;
+    font-family: monospace;
     
 }
     </style>
@@ -300,14 +301,21 @@
     <style>
 .sidebar-container{
     width: 300px;
-    height: 350px;
+    height: 100%;
     border: 1px solid black;
+    background-color: #b70c0c;
+    flex-direction: column;
+    position: absolute;
+    display: flex;
 }
 .sidebar-profile-section{
     border-bottom:1px solid black ;
     font-size: 28px;
     font-weight: bold;
-    padding-left: 8px;
+    padding: 10px;
+}
+.sidebar-menu-section{
+  flex-grow: 1;
 }
 .sidebar-menu-item{
     margin-top: 3px;
@@ -315,7 +323,7 @@
 }
 .sidebar-footer-section{
     border-top:1px solid black  ;
-    margin-top: 230px;
+    display: end;
     padding-left: 8px;
 }
     </style>
