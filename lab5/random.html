@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Card Generator</title>
+  <style>
+   
+    .board{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 20px;
+       position: absolute;
+       display: flex;
+      background-color:rgb(7, 168, 7);
+      border-radius: 8px;
+      border: 3px solid black;
+      flex-grow: 1;
+      justify-content: center;
+      
+    }
+    .card {
+      border-radius: 8px;
+      border: 3px solid;
+      width: 150px;
+      padding: 10px;
+      height: 250px;
+      margin-left: 30px;
+      margin-top: 180px;
+      font-size: 36px;
+      background-color: white;
+      display: inline-block;
+      text-align: center;
+      
+    }
+    .typeCard{
+        margin-right: 10px;
+        text-align: right;
+        font-size: 40px;
+    }
+   .number{
+        font-size: 80px;
+        margin-top: 20px;
+   }
+    .buttons{
+      width: 100%;
+			height: 100px;
+			display: flex;
+			position: fixed;
+			bottom: 0;
+            left: 0;
+    }
+    .button{
+      width: 100%;
+      font-size: 38px;
+    }
+    .card.red{
+        color: rgb(185, 6, 6);
+        border-color:rgb(185, 6, 6);
+    }
+    .card.black{
+        color: rgb(0, 0, 0);
+        border-color:rgb(0, 0, 0);
+    }
+  </style>
+   <script>
+    var CARD_TYPE = ['♣','♦','♥','♠']
+    var CARD_NUMBER = ['A','1','2','3', '4', '5','6','7', '8', '9', '10','J','Q','K']
+
+   // random function
+   // max: number > 0
+   // return [0, max -1]
+   function random(max){
+   return parseInt(Math.random() * max) % max
+}
+
+// how to use random function
+function onClickRandombotton(){
+    var cardlist =document.getElementsByClassName('card')
+    
+  for (var index=0; index < cardlist.length ;index++){
+    var cardElm = cardlist[index]
+    var cardnumberElm = cardElm.getElementsByClassName('number')[0]
+    var cardtypeElm = cardElm.getElementsByClassName('typeCard')[0]
+   
+    var cardtype =CARD_TYPE[random(CARD_TYPE.length)]
+    var cardnumber =CARD_NUMBER[random(CARD_NUMBER.length)]
+
+    if(cardtype==='♦'|| cardtype==='♥'){
+    cardElm.classList.add('red')
+   }else{
+    cardElm.classList.remove('red')
+   }
+   cardtypeElm.innerText=cardtype
+   cardnumberElm.innerText = cardnumber
+  }
+  
+  
+}
+   
+
+  </script>
+</head>
+<body>
+  <div class="board">
+    <div class="card">
+        <div class="typeCard" ></div>
+        <div class="number" ></div>
+    </div>
+    <div class="card">
+        <div class="typeCard" ></div>
+        <div class="number" ></div>
+    </div>
+    <div class="card">
+        <div class="typeCard" ></div>
+        <div class="number" ></div>
+    </div>
+    <div class="card">
+        <div class="typeCard" ></div>
+        <div class="number" ></div>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="button" onclick="onClickRandombotton()">Click to Random</button>
+  </div>
+
+</body>
+</html>

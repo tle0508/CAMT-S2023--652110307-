@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Card Generator</title>
+  <style>
+    body{
+      background-color: rgb(5, 161, 5);
+    }
+    .cards{
+      width: 100%;
+      height: 580px;
+      display: flex;
+      justify-content: center;
+      
+    }
+    .card {
+      border-radius: 8px;
+      border: 2.5px solid;
+      width: 150px;
+      padding: 10px;
+      height: 250px;
+      margin-left: 30px;
+      margin-top: 180px;
+      font-size: 36px;
+      background-color: white;
+      display: inline-block;
+      text-align: center;
+      
+    }
+    .card.red {
+      border-color: rgb(198, 8, 8);
+      color: rgb(198, 8, 8);
+    }
+    .card.black {
+      border-color: black;
+    }
+    .buttons{
+      width: 100%;
+			height: 100px;
+			display: flex;
+			position: fixed;
+			bottom: 0;
+      left: 0;
+    }
+    .button{
+      width: 100%;
+      font-size: 38px;
+    }
+  </style>
+   <script>
+    function generateCards() {
+      var cards = document.querySelectorAll('.card');
+      var CARD_TYPE = ['♣', '♦', '♥', '♠'];
+      var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K'];
+
+      for (let i = 0; i < cards.length; i++) {
+        var cardtype = CARD_TYPE[Math.floor(Math.random() * CARD_TYPE.length)];
+        var cardnumber = CARD_NUMBER[Math.floor(Math.random() * CARD_NUMBER.length)];
+        var color = cardtype === '♥' || cardtype === '♦' ? 'red' : 'black';
+        
+        cards[i].innerHTML = `${cardnumber}${cardtype}`;
+        cards[i].classList.remove('red', 'black');
+        cards[i].classList.add(color);
+      }
+      
+      
+    }
+  </script>
+</head>
+<body>
+  <div class="cards">
+    <div class="card">
+      <div class="typeCard"></div>
+      <div class="numbercard"></div>
+    </div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+  </div>
+  <div class="buttons">
+    <button class="button" onclick="generateCards()">Click to Random</button>
+  </div>
+
+</body>
+</html>
