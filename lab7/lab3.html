@@ -11,7 +11,7 @@
       bottom: 0;
       position: absolute;
       display: flex;
-      background-color: rgb(4, 55, 4);
+      background-color: rgb(21, 233, 21);
       border: 2.5px solid rgb(86, 82, 82);
       flex-direction: column;
       justify-content: space-between;
@@ -82,7 +82,7 @@
 
     .face-down {
       color: rgb(255, 255, 255);
-      background-color: rgb(79, 97, 84);
+      background-color: rgb(7, 68, 22);
 
     }
 
@@ -94,80 +94,42 @@
     }
 
     .card-body {
+
       font-size: 60px;
 
     }
   </style>
   <script>
-     var cardList = [
-        { value: ['♣', 'A'], isFaceDown: true },
-        { value: ['♣', '2'], isFaceDown: false },
-        { value: ['♣', '3'], isFaceDown: true },
-        { value: ['♣', '4'], isFaceDown: false },
-        { value: ['♣', '5'], isFaceDown: true },
-        { value: ['♣', '6'], isFaceDown: true },
-        { value: ['♣', '7'], isFaceDown: true },
-        { value: ['♣', '8'], isFaceDown: false },
-        { value: ['♣', '9'], isFaceDown: true },
-        { value: ['♣', '10'], isFaceDown: true },
-        { value: ['♣', 'J'], isFaceDown: true },
-        { value: ['♣', 'Q'], isFaceDown: true },
-        { value: ['♣', 'K'], isFaceDown: false },
-        { value: ['♥', 'A'], isFaceDown: true },
-        { value: ['♥', '2'], isFaceDown: true },
-        { value: ['♥', '3'], isFaceDown: false },
-        { value: ['♥', '4'], isFaceDown: false },
-        { value: ['♥', '5'], isFaceDown: true },
-        { value: ['♥', '6'], isFaceDown: false },
-        { value: ['♥', '7'], isFaceDown: true },
-        { value: ['♥', '8'], isFaceDown: true },
-        { value: ['♥', '9'], isFaceDown: true },
-        { value: ['♥', '10'], isFaceDown: true },
-        { value: ['♥', 'J'], isFaceDown: true },
-        { value: ['♥', 'Q'], isFaceDown: true },
-        { value: ['♥', 'K'], isFaceDown: false },
-        { value: ['♦', 'A'], isFaceDown: true },
-        { value: ['♦', '2'], isFaceDown: true },
-        { value: ['♦', '3'], isFaceDown: false },
-        { value: ['♦', '4'], isFaceDown: false },
-        { value: ['♦', '5'], isFaceDown: true },
-        { value: ['♦', '6'], isFaceDown: false },
-        { value: ['♦', '7'], isFaceDown: true },
-        { value: ['♦', '8'], isFaceDown: true },
-        { value: ['♦', '9'], isFaceDown: false },
-        { value: ['♦', '10'], isFaceDown: true },
-        { value: ['♦', 'J'], isFaceDown: true },
-        { value: ['♦', 'Q'], isFaceDown: true },
-        { value: ['♦', 'K'], isFaceDown: false },
-        { value: ['♠', 'A'], isFaceDown: true },
-        { value: ['♠', '2'], isFaceDown: true },
-        { value: ['♠', '3'], isFaceDown: false },
-        { value: ['♠', '4'], isFaceDown: false },
-        { value: ['♠', '5'], isFaceDown: true },
-        { value: ['♠', '6'], isFaceDown: false },
-        { value: ['♠', '7'], isFaceDown: true },
-        { value: ['♠', '8'], isFaceDown: true },
-        { value: ['♠', '9'], isFaceDown: true },
-        { value: ['♠', '10'], isFaceDown: true },
-        { value: ['♠', 'J'], isFaceDown: true },
-        { value: ['♠', 'Q'], isFaceDown: true },
-        { value: ['♠', 'K'], isFaceDown: false },
-    ]
+    var cardList = [
+  { value: ['♣', 'A'], isFaceDown: true },
+  { value: ['♣', '2'], isFaceDown: false },
+  { value: ['♣', '3'], isFaceDown: true },
+  { value: ['♣', '4'], isFaceDown: false },
+  { value: ['♣', '5'], isFaceDown: true },
+  { value: ['♣', '6'], isFaceDown: true },
+  { value: ['♣', '7'], isFaceDown: true },
+  { value: ['♣', '8'], isFaceDown: false },
+  { value: ['♣', '9'], isFaceDown: true },
+  { value: ['♣', '10'], isFaceDown: true },
+  { value: ['♣', 'J'], isFaceDown: true },
+  { value: ['♣', 'Q'], isFaceDown: true },
+  { value: ['♣', 'K'], isFaceDown: false },
+  { value: ['♥', 'A'], isFaceDown: true },
+  { value: ['♥', '2'], isFaceDown: true },
+  { value: ['♥', '3'], isFaceDown: false },
+  { value: ['♥', '4'], isFaceDown: false },
+  { value: ['♥', '5'], isFaceDown: true },
+  { value: ['♥', '6'], isFaceDown: false },
+  { value: ['♥', '7'], isFaceDown: true },
+  { value: ['♥', '8'], isFaceDown: true },
+  { value: ['♥', '9'], isFaceDown: true },
+  { value: ['♥', '10'], isFaceDown: true },
+  { value: ['♥', 'J'], isFaceDown: true },
+  { value: ['♥', 'Q'], isFaceDown: true },
+  { value: ['♥', 'K'], isFaceDown: false },
+]
 
-    function randomCard(){
-        for (let i = cardList.length-1; i > 0; i--) {
-            var randomBoolean = Math.random() >= 0.5;
-            if(randomBoolean >= 0.5){
-                cardList[i].isFaceDown = true;
-            }else{
-                cardList[i].isFaceDown = false;
-            }
-            const j = Math.floor(Math.random() * (i+1));
-            const temp = cardList[i];
-            cardList[i] = cardList[j];
-            cardList[j] = temp;
-        }
-    }
+   
 
 
     function htmlToElem(html) {
@@ -178,7 +140,7 @@
     }
 
     function renderCardList() {
-        randomCard();
+        
         // TODO: define cardZoneElm here
         const cardZoneElm = document.getElementsByClassName("card-zone");
         // before append any DOM(s), you need to clear all children of cardZoneElm
@@ -188,7 +150,7 @@
             // if isFaceDown is true, create a card component with 'face-down' class
             if (cardList[idx].isFaceDown === true) {
                 cardElm = htmlToElem(
-                    '<div class="card face-down"><div class="card-title"> </div><div class="card-body">?</div></div>'
+                    '<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>'
                 );
                 cardZoneElm[0].append(cardElm);
             } else {
@@ -203,11 +165,7 @@
             }
         }
     }
-    window.onload = function(){
-        renderCardList();
-        const buttonRandom = document.getElementsByClassName("new-game-button");
-        buttonRandom[0].addEventListener("click", renderCardList);
-    };
+   
   </script>
 </head>
 
