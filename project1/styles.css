@@ -90,26 +90,26 @@
 }
 
   .cell.x,
-  .cell.o {
+  .cell.circle {
     cursor: not-allowed;
   }
   
   .cell.x::before,
   .cell.x::after,
-  .cell.o::before {
+  .cell.circle::before {
     background-color: black;
   }
   
-  .board.x .cell:not(.x):not(.o):hover::before,
-  .board.x .cell:not(.x):not(.o):hover::after,
-  .board.o .cell:not(.x):not(.o):hover::before {
+  .board.x .cell:not(.x):not(.circle):hover::before,
+  .board.x .cell:not(.x):not(.circle):hover::after,
+  .board.circle .cell:not(.x):not(.circle):hover::before {
     background-color: lightgrey;
   }
   
   .cell.x::before,
   .cell.x::after,
-  .board.x .cell:not(.x):not(.o):hover::before,
-  .board.x .cell:not(.x):not(.o):hover::after {
+  .board.x .cell:not(.x):not(.circle):hover::before,
+  .board.x .cell:not(.x):not(.circle):hover::after {
     content: '';
     position: absolute;
     width: calc(var(--mark-size) * .15);
@@ -117,32 +117,32 @@
   }
   
   .cell.x::before,
-  .board.x .cell:not(.x):not(.o):hover::before {
+  .board.x .cell:not(.x):not(.circle):hover::before {
     transform: rotate(45deg);
   }
   
   .cell.x::after,
-  .board.x .cell:not(.x):not(.o):hover::after {
+  .board.x .cell:not(.x):not(.circle):hover::after {
     transform: rotate(-45deg);
   }
   
-  .cell.o::before,
-  .cell.o::after,
-  .board.o .cell:not(.x):not(.o):hover::before,
-  .board.o .cell:not(.x):not(.o):hover::after {
+  .cell.circle::before,
+  .cell.circle::after,
+  .board.circle .cell:not(.x):not(.circle):hover::before,
+  .board.circle .cell:not(.x):not(.circle):hover::after {
     content: '';
     position: absolute;
     border-radius: 50%;
   }
   
-  .cell.o::before,
-  .board.o .cell:not(.x):not(.o):hover::before {
+  .cell.circle::before,
+  .board.circle .cell:not(.x):not(.circle):hover::before {
     width: var(--mark-size);
     height: var(--mark-size);
   }
   
-  .cell.o::after,
-  .board.o .cell:not(.x):not(.o):hover::after {
+  .cell.circle::after,
+  .board.circle .cell:not(.x):not(.circle):hover::after {
     width: calc(var(--mark-size) * .7);
     height: calc(var(--mark-size) * .7);
     background-color: white;
