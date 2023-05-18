@@ -15,7 +15,7 @@ const WINNING_COMBINATIONS = [
   [2, 4, 6]
 ]
 const cellElements = document.querySelectorAll('[data-cell]')
-const checkcellElements = document.querySelectorAll('[check-cell]')
+const checkcellElements = document.getElementsByClassName('checkcellElements')[0]
 const smallboardElements = document.querySelectorAll('[board1]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
@@ -40,6 +40,7 @@ function startGame() {
 }
 
 function handleClick(e) {
+  
   const cell = e.target
   const currentClass = circleTurn ? O_CLASS : X_CLASS
   placeMark(cell, currentClass)
@@ -61,21 +62,28 @@ function endGame(draw) {
   console.log(`${circleTurn ? "O's" : "X's"} Wins!`)
   
 
+  
+
   }
+  swapTurns()
+  setBoardHoverClass()
  // winningMessageElement.classList.add('show')
 }
 
-function isDraw() {
+function isDraw() {     //***ฟังชั่นเช็คว่ามี x กับ o เต็มทุกช่องหรือไม่เพื่อให้เกมเสมอ***//
   return [...cellElements].every(cell => {
     return cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)
   })
 }
 
+
 function placeMark(cell, currentClass) {
   cell.classList.add(currentClass)
+  
 }
 
-function swapTurns() {
+
+function swapTurns() {      //**ฟังชั่นสลับฝั่ง**//
   circleTurn = !circleTurn
 }
 
